@@ -8,5 +8,7 @@ Map::Map() {}
 
 void Map::LireMap(nom)
 {
-	
+	ofstream niveau;
+    
+
 }
