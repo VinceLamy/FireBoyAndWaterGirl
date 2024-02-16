@@ -1,0 +1,66 @@
+Premiere ligne: taille de la map en x
+Deuxieme ligne: taille de la map en y
+
+CREATION DES SOLS ET DES MURS
+
+Sol:
+S Xd Xf Y
+Xd: valeur en x de depart
+Xf: valeur en x de fin
+Y: position en y de la ligne
+
+Mur:
+M X Yd Yf
+X: position en x de la ligne
+Yd: valeur en y de depart
+Yf: valeur en y de fin
+
+CREATION DES MATIERES
+
+Eau:
+- Xd Xf Y
+Xd: valeur en x de depart
+Xf: valeur en x de fin
+Y: position en y de la ligne
+
+Feu:
++ Xd Xf Y
+Xd: valeur en x de depart
+Xf: valeur en x de fin
+Y: position en y de la ligne
+
+CREATION DES OBJETS
+
+Personnage eau:
+E X Y
+X: position en x
+Y: position en Y
+
+Personnage feu:
+F X Y
+X: position en x
+Y: position en Y
+
+Porte de fin:
+P X Y
+X: position en x
+Y: position en Y
+
+Porte non-fixe
+| X Yd Yf
+X: position en x de la ligne
+Yd: valeur en y de depart
+Yf: valeur en y de fin
+LES OBJETS A LA SUITE D'UNE PORTE NON FIXE
+DOIVENT ETRE CEUX QUI LUI SONT LIES
+
+Levier:
+L X Y
+X: position en x
+Y: position en Y
+
+Bouton:
+B X Y
+X: position en x
+Y: position en Y
+

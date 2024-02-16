@@ -13,8 +13,6 @@ public:
 	void AfficherMap();
 
 private:
-	int x;
-	int y;
 	const char* nom;
 	vector<vector<char>> charLevel;
 };
