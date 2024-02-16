@@ -2,7 +2,7 @@
 
 int main()
 {
-	Map niveau1("mapConsole.txt");
+	Map niveau1("mapConsoleTexte.txt");
 	niveau1.LireMap();
 	niveau1.AfficherMap();
 
