@@ -15,7 +15,7 @@ Map::~Map()
 {
 }
 
-void Map::LireMap()
+void Map::ReadMap()
 {
 	ifstream niveau;
 	niveau.open(nom, ios_base::in);
@@ -119,7 +119,7 @@ void Map::LireMap()
 	}
 }
 
-void Map::AfficherMap()
+void Map::ShowMap()
 {
 	for (int a = 0; a < charLevel.size(); a++)
 	{

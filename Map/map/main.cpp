@@ -3,8 +3,8 @@
 int main()
 {
 	Map niveau1("mapConsoleTexte.txt");
-	niveau1.LireMap();
-	niveau1.AfficherMap();
+	niveau1.ReadMap();
+	niveau1.ShowMap();
 
 	return 0;
 }

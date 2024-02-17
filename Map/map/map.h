@@ -9,8 +9,8 @@ public:
 	Map(const char* nomNiveau);
 	~Map();
 
-	void LireMap();
-	void AfficherMap();
+	void ReadMap();
+	void ShowMap();
 
 private:
 	const char* nom;
