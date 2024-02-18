@@ -3,24 +3,39 @@
 
 using namespace std;
 
-Pool::Pool(int x, int y, char e)
+Pool::Pool(int x, int y, Element e)
 {
-	element = e;
+	_element = e;
 	SetPostition(x, y);
+	SetType(POOL);
 }
 
 Pool::~Pool()
 {
 }
 
+void Pool::SetElememt(Element e)
+{
+	_element = e;
+}
+
+Element Pool::GetElement()
+{
+	return _element;
+}
+
 void Pool::Show()
 {
-	if (element == 'E')
+	if (_element == WATER)
 	{
 		cout << '-';
 	}
-	else if (element == 'F')
+	else if (_element == FIRE)
 	{
 		cout << '+';
+	}
+	else if (_element == GOO)
+	{
+		cout << '~';
 	}
 }

@@ -1,5 +1,6 @@
 #include "tile.h"
 #include <iostream>
+
 using namespace std;
 
 Tile::Tile()
@@ -8,12 +9,14 @@ Tile::Tile()
 
 Tile::Tile(int x, int y)
 {
-	position.x = x;
-	position.y = y;
+	_position.x = x;
+	_position.y = y;
+	_type = TILE;
 }
 
 Tile::~Tile()
 {
+	Clear();
 }
 
 Coordinate Tile::GetPosition()
@@ -21,13 +24,29 @@ Coordinate Tile::GetPosition()
 	return Coordinate();
 }
 
+Type Tile::GetType()
+{
+	return Type();
+}
+
 void Tile::SetPostition(int x, int y)
 {
-	position.x = x;
-	position.y = y;
+	_position.x = x;
+	_position.y = y;
+}
+
+void Tile::SetType(Type t)
+{
+	_type = t;
 }
 
 void Tile::Show()
 {
 	cout << ' ';
+}
+
+void Tile::Clear()
+{
+	_position.x = 0;
+	_position.y = 0;
 }

@@ -1,6 +1,8 @@
 #ifndef TILE_H
 #define TILE_H
 
+#include "enum.h"
+
 struct Coordinate 
 {
 	int x;
@@ -13,12 +15,19 @@ public:
 	Tile();
 	Tile(int x, int y);
 	virtual ~Tile();
+
 	Coordinate GetPosition();
+	Type GetType();
+
 	void SetPostition(int x, int y);
+	void SetType(Type t);
+
 	virtual void Show();
+	void Clear();
 
 private:
-	Coordinate position;
+	Coordinate _position;
+	Type _type;
 };
 
 #endif TILE_H

@@ -20,7 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="button.cpp" />
-    <ClCompile Include="caracter.cpp" />
+    <ClCompile Include="character.cpp" />
     <ClCompile Include="controller.cpp" />
     <ClCompile Include="exit.cpp" />
     <ClCompile Include="gate.cpp" />
@@ -33,8 +33,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="button.h" />
-    <ClInclude Include="caracter.h" />
+    <ClInclude Include="character.h" />
     <ClInclude Include="controller.h" />
+    <ClInclude Include="enum.h" />
     <ClInclude Include="exit.h" />
     <ClInclude Include="gate.h" />
     <ClInclude Include="lever.h" />

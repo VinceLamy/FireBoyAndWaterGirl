@@ -6,12 +6,16 @@
 class Pool : public Tile
 {
 public:
-	Pool(int x, int y, char e);
+	Pool(int x, int y, Element e);
 	~Pool();
+
+	void SetElememt(Element e);
+	Element GetElement();
+
 	void Show();
 
 private:
-	char element;
+	Element _element;
 };
 
 #endif POOL_H

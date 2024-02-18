@@ -6,6 +6,7 @@ using namespace	std;
 Lever::Lever(int x, int y)
 {
 	SetPostition(x, y);
+	SetType(LEVER);
 }
 
 Lever::Lever()
