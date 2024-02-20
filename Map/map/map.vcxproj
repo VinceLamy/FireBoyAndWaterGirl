@@ -19,11 +19,32 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="button.cpp" />
+    <ClCompile Include="character.cpp" />
+    <ClCompile Include="controller.cpp" />
+    <ClCompile Include="exit.cpp" />
+    <ClCompile Include="gate.cpp" />
+    <ClCompile Include="lever.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map.cpp" />
+    <ClCompile Include="platform.cpp" />
+    <ClCompile Include="pool.cpp" />
+    <ClCompile Include="tile.cpp" />
+    <ClCompile Include="wall.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="button.h" />
+    <ClInclude Include="character.h" />
+    <ClInclude Include="controller.h" />
+    <ClInclude Include="enum.h" />
+    <ClInclude Include="exit.h" />
+    <ClInclude Include="gate.h" />
+    <ClInclude Include="lever.h" />
     <ClInclude Include="map.h" />
+    <ClInclude Include="platform.h" />
+    <ClInclude Include="pool.h" />
+    <ClInclude Include="tile.h" />
+    <ClInclude Include="wall.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
