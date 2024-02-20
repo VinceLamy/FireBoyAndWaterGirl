@@ -51,7 +51,18 @@ Porte non-fixe
 X: position en x de la ligne
 Yd: valeur en y de depart
 Yf: valeur en y de fin
-LES OBJETS A LA SUITE D'UNE PORTE NON FIXE
+LES CONTROLLERS AVANT UNE PORTE NON FIXE
+DOIVENT ETRE CEUX QUI LUI SONT LIES
+
+Platforme
+% O X Y Xf Yf T
+O = orientation H = Horizontal, V = Vertical
+X = position en x initiale de la platforme mere
+Y = position en y initiale de la platforme mere
+Xf = position en x finale de la platforme mere
+Yf = position en y finale de la platforme mere
+T = Taille de la plateforme
+LES CONTROLLERS AVANT UNE PLATEFORME
 DOIVENT ETRE CEUX QUI LUI SONT LIES
 
 Levier:
