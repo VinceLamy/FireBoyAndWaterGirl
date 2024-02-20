@@ -6,7 +6,7 @@ using namespace std;
 Pool::Pool(int x, int y, Element e)
 {
 	_element = e;
-	SetPostition(x, y);
+	SetPosition(x, y);
 	SetType(POOL);
 }
 

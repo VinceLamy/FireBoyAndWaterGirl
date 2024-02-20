@@ -5,7 +5,7 @@ using namespace	std;
 
 Exit::Exit(int x, int y)
 {
-	SetPostition(x, y);
+	SetPosition(x, y);
 	SetType(EXIT);
 }
 

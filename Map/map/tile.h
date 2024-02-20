@@ -19,7 +19,7 @@ public:
 	Coordinate GetPosition();
 	Type GetType();
 
-	void SetPostition(int x, int y);
+	void SetPosition(int x, int y);
 	void SetType(Type t);
 
 	virtual void Show();

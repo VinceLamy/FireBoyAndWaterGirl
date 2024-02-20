@@ -6,7 +6,7 @@ using namespace std;
 Caracter::Caracter(int x, int y, Element e)
 {
 	_element = e;
-	SetPostition(x, y);
+	SetPosition(x, y);
 	SetType(CHARACTER);
 }
 

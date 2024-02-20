@@ -5,7 +5,7 @@ using namespace	std;
 
 Gate::Gate(int x, int y)
 {
-	SetPostition(x, y);
+	SetPosition(x, y);
 	SetType(GATE);
 }
 

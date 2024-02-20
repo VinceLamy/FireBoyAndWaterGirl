@@ -5,7 +5,7 @@ using namespace	std;
 
 Wall::Wall(int x, int y)
 {
-	SetPostition(x, y);
+	SetPosition(x, y);
 	SetType(WALL);
 }
 

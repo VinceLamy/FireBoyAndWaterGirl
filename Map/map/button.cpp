@@ -5,7 +5,7 @@ using namespace	std;
 
 Button::Button(int x, int y)
 {
-	SetPostition(x, y);
+	SetPosition(x, y);
 	SetType(BUTTON);
 }
 

@@ -21,15 +21,15 @@ Tile::~Tile()
 
 Coordinate Tile::GetPosition()
 {
-	return Coordinate();
+	return _position;
 }
 
 Type Tile::GetType()
 {
-	return Type();
+	return _type;
 }
 
-void Tile::SetPostition(int x, int y)
+void Tile::SetPosition(int x, int y)
 {
 	_position.x = x;
 	_position.y = y;
