@@ -150,6 +150,27 @@ void Map::ShowMap()
 	}
 }
 
+void Map::CheckPlatforms()
+{
+	for (int y = 0; y < _grid.size(); y++)
+	{
+		for (int x = 0; x < _grid[y].size(); x++)
+		{
+			if (_grid[y][x]->GetType() == PLATFORM)
+			{
+				Platform* thisPlatform = static_cast<Platform*>(_grid[y][x]);
+				thisPlatform->CheckControllers();
+
+				if (thisPlatform->GetMoveMe() == true)
+				{
+					MovePlatform(x, y);
+					thisPlatform->SetMoveMe(false);
+				}
+			}
+		}
+	}
+}
+
 void Map::SetGrid(vector<vector<Tile*>> g)
 {
 	_grid = g;

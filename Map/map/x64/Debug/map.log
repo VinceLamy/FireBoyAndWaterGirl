@@ -1,6 +1,1 @@
-﻿  main.cpp
-  map.cpp
-C:\Users\Félix-Antoine\Documents\GitHub\FireBoyAndWaterGirl\Map\map\map.cpp(67,8): warning C4101: 'lastPlatformY': unreferenced local variable
-C:\Users\Félix-Antoine\Documents\GitHub\FireBoyAndWaterGirl\Map\map\map.cpp(66,8): warning C4101: 'lastPlatformX': unreferenced local variable
-  Generating Code...
-  map.vcxproj -> C:\Users\Félix-Antoine\Documents\GitHub\FireBoyAndWaterGirl\Map\map\x64\Debug\map.exe
+﻿  map.vcxproj -> C:\Users\Félix-Antoine\Documents\GitHub\FireBoyAndWaterGirl\Map\map\x64\Debug\map.exe

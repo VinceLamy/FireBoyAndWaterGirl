@@ -20,6 +20,8 @@ public:
 	vector<vector<Tile*>> GetGrid;
 	const char* GetFilename;
 
+	void CheckPlatforms();
+
 	void SetGrid(vector<vector<Tile*>> g);
 	void MovePlatform(int x, int y);
 

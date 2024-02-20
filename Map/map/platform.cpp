@@ -10,6 +10,7 @@ Platform::Platform(int x, int y)
 Platform::Platform(int x, int y, int xFinal, int yFinal, int size, Orientation o, vector<Tile*> slave, vector<Controller*> controllers)
 {
 	SetPosition(x, y);
+	SetType(PLATFORM);
 	_initial.x = x;
 	_initial.y = y;
 	_final.x = xFinal;
@@ -28,6 +29,11 @@ Platform::~Platform()
 int Platform::GetSize()
 {
 	return _size;
+}
+
+bool Platform::GetMoveMe()
+{
+	return _moveMe;
 }
 
 Coordinate Platform::GetFinal()
@@ -105,9 +111,38 @@ void Platform::MovePlatform()
 	}
 }
 
+void Platform::CheckControllers()
+{
+	for (int i = 0; i < _controllers.size(); i++)
+	{
+		if (_state == CLOSED)
+		{
+			if (_controllers[i]->GetState() == true)
+				_moveMe = true;
+		}
+		if (_state == OPEN)
+		{
+			if (_controllers[i]->GetState() == false)
+			{
+				_moveMe = true;
+			}
+			else
+			{
+				_moveMe = false;
+				break;
+			}
+		}
+	}
+}
+
 void Platform::SetState(State s)
 {
 	_state = s;
+}
+
+void Platform::SetMoveMe(bool b)
+{
+	_moveMe = b;
 }
 
 
