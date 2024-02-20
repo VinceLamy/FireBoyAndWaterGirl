@@ -16,7 +16,8 @@ public:
 
 private:
 	bool _state = false;
-
+	// Sprite
+	// Color
 };
 
 #endif CONTROLLER_H

@@ -2,18 +2,21 @@
 
 Controller::Controller()
 {
+	_state = false;
 }
 
 Controller::~Controller()
 {
 }
 
+
+
 void Controller::ChangeState()
 {
-	if (_state)
+	if (_state == true)
 		_state = false;
 
-	if (!_state)
+	else
 		_state = true;
 }
 
