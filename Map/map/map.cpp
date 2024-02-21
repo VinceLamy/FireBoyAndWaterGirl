@@ -39,7 +39,7 @@ void Map::ReadMap()
 		int y = stoi(ligne);
 		_grid.resize(y, vector<Tile*>(x));
 
-		//Remplie la map de Tile
+		//Remplit la map de Tile
 		for (int a = 0; a < _grid.size(); a++)
 		{
 			for (int b = 0; b < _grid[a].size(); b++)
