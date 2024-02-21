@@ -64,14 +64,15 @@ int main()
         if (msg.size() > 0)
         {
             msg.erase(std::remove(msg.begin(), msg.end(), '\n'), msg.end());
-            if (msg.size() == 125)
+            // std::cout << msg.size() << std::endl;
+            if (msg.size() > 108 && msg.size() < 113)
             {
                 rcv_msg = json::parse(msg);
                 std::cout << rcv_msg << std::endl;
             }
         }
 
-        if (rcv_msg["boutons"][0]["1"] == 1 )
+        if (rcv_msg["boutons"]["1"] == 1 )
         {
             if (etat_joueur == 0)
             {

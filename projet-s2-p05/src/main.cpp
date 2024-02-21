@@ -49,17 +49,17 @@ void SendUpdate(sensor_data_t* data)
 {
 	JsonDocument doc;
 
-	doc["accelerometre"][0]["x"] = data->accelX;
-	doc["accelerometre"][0]["y"] = data->accelY;
-	doc["accelerometre"][0]["z"] = data->accelZ;
+	doc["accelerometre"]["x"] = data->accelX;
+	doc["accelerometre"]["y"] = data->accelY;
+	doc["accelerometre"]["z"] = data->accelZ;
 
-	doc["boutons"][0]["1"] = (data->buttons & 1) >> 0;
-	doc["boutons"][1]["2"] = (data->buttons & 2) >> 1;
-	doc["boutons"][2]["3"] = (data->buttons & 4) >> 2;
-	doc["boutons"][3]["4"] = (data->buttons & 8) >> 3;
+	doc["boutons"]["1"] = (data->buttons & 1) >> 0;
+	doc["boutons"]["2"] = (data->buttons & 2) >> 1;
+	doc["boutons"]["3"] = (data->buttons & 4) >> 2;
+	doc["boutons"]["4"] = (data->buttons & 8) >> 3;
 
-	doc["joystick"][0]["x"] = data->joyX;
-	doc["joystick"][1]["y"] = data->joyY;
+	doc["joystick"]["x"] = data->joyX;
+	doc["joystick"]["y"] = data->joyY;
 	doc["dt"] = data->dt;
 
 	serializeJson(doc, Serial);
@@ -126,7 +126,7 @@ void loop()
 	sensor_data.accelY = 0;
 	sensor_data.accelZ = 0;
 
-	sensor_data.buttons = 0xff & (digitalRead(button1_pin) | (digitalRead(button2_pin) << 1) | (digitalRead(button3_pin) << 2) | (digitalRead(button4_pin) << 3));
+	sensor_data.buttons = (digitalRead(button1_pin) | (digitalRead(button2_pin) << 1) | (digitalRead(button3_pin) << 2) | (digitalRead(button4_pin) << 3));
 	
 	sensor_data.joyX = analogRead(pin_joystick_x);
 	sensor_data.joyY = analogRead(pin_joystick_y);
