@@ -112,7 +112,7 @@ void Platform::MovePlatform()
 }
 
 void Platform::CheckControllers()
-.{
+{
 	for (int i = 0; i < _controllers.size(); i++)
 	{
 		if (_state == CLOSED)
