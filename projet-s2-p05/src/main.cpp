@@ -14,7 +14,7 @@
 #define button3_pin 46
 #define button4_pin 44
 
-#define debug_led_pin 45
+// #define debug_led_pin 45
 
 
 typedef struct
@@ -102,7 +102,7 @@ void setup()
 	pinMode(pin_fire_led, OUTPUT);
 	pinMode(pin_water_led, OUTPUT);
 
-	pinMode(debug_led_pin, OUTPUT);
+	// pinMode(debug_led_pin, OUTPUT);
 
 	sensor_data.accelX = 0;
 	sensor_data.accelY = 0;
