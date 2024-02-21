@@ -14,6 +14,8 @@
 #define button3_pin 46
 #define button4_pin 44
 
+#define lcd_char_buffer_size 34
+
 // #define debug_led_pin 45
 
 
@@ -36,7 +38,7 @@ typedef struct
 	int seg_2;
 	
 	uint8_t playerChoice;
-	char lcd_data[64];
+	char lcd_data[lcd_char_buffer_size];
 } display_data_t;
 
 sensor_data_t sensor_data;
@@ -84,7 +86,7 @@ void ReadUpdate(display_data_t* data)
 	data->playerChoice = doc["joueur"];
 	data->seg_1 = doc["seg1"];
 	data->seg_2 = doc["seg2"];
-	strncpy(data->lcd_data, doc["lcd"], 64);
+	strncpy(data->lcd_data, doc["lcd"], lcd_char_buffer_size);
 }
 
 void setup() 
@@ -115,7 +117,7 @@ void setup()
 	display_data.seg_1 = 0;
 	display_data.seg_2 = 0;
 	display_data.playerChoice = 0;
-	strncpy(display_data.lcd_data, "", 64);
+	strncpy(display_data.lcd_data, "", lcd_char_buffer_size);
 }
 
 void loop() 

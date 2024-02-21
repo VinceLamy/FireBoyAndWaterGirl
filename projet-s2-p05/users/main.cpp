@@ -87,8 +87,8 @@ int main()
         }
         
 
-        send_msg["seg1"] = 0;
-        send_msg["seg2"] = 0;
+        send_msg["seg1"] = 4;
+        send_msg["seg2"] = 8;
         send_msg["lcd"] = "Hi!";
 
         SendToSerial(arduino, send_msg);
