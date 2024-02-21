@@ -3,11 +3,11 @@
 
 #include "tile.h"
 
-class Caracter : public Tile 
+class Character : public Tile 
 {
 public:
-	Caracter(int x, int y, Element e);
-	~Caracter();
+	Character(int x, int y, Element e);
+	~Character();
 	void Show();
 
 private:

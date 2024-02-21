@@ -263,7 +263,7 @@ void Map::AddTile(int x, int y)
 
 void Map::AddCharacter(int x, int y, Element e)
 {
-	Tile* nCaracter = new Caracter(x, y, e);
+	Tile* nCaracter = new Character(x, y, e);
 	delete _grid[y][x];
 	_grid[y][x] = nCaracter;
 }

@@ -3,18 +3,18 @@
 
 using namespace std;
 
-Caracter::Caracter(int x, int y, Element e)
+Character::Character(int x, int y, Element e)
 {
 	_element = e;
 	SetPosition(x, y);
 	SetType(CHARACTER);
 }
 
-Caracter::~Caracter()
+Character::~Character()
 {
 }
 
-void Caracter::Show()
+void Character::Show()
 {
 	if (_element == WATER)
 	{
