@@ -354,7 +354,7 @@ void Map::Clear()
 			delete _grid[a][b];
 		}
 	}
-
 	_fileName = NULL;
 	_grid.clear();
+	_lastControllers.clear();
 }
