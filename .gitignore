@@ -2,5 +2,6 @@
 *
 
 # Garder les fichiers .h et .cpp
-!/Map/*.h
-!/Map/*.cpp
+!/Map/Map/*.h
+!/Map/Map/*.cpp
+!/Map/Map/Map/*
