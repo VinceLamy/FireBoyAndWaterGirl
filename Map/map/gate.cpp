@@ -33,5 +33,10 @@ void Gate::setHeight(height)
 
 void Gate::Show()
 {
-    cout << '|';
-}
+    if (state == gateState::Closed) {
+        if (orientation == gateOrientation::Horizontal) {
+            cout << '-';
+        } else if (orientation == gateOrientation::Vertical) {
+            cout << '|';
+        }
+    }
