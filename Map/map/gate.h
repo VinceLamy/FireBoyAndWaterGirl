@@ -7,10 +7,10 @@
 class Gate : public Tile
 {
 private:
-	int width;
-	int height;
-	State state;
-	Orientation orientation;
+	int width; //Largeur
+	int height; //Hauteur
+	enum class gateState{ Closed, Opened };
+	enum class gateOrientation{ Vertical, Horizontal };
 	Controller controller;
 
 public:
@@ -22,18 +22,10 @@ public:
 	// Getters
 	int getWidth();
 	int getHeight();
-	int getDimension();
-	State getState();
-	Orientation getOrientation();
-	Controller getController();
 	
 	//Setters
-	void setWidth(width);
-	void setHeight(height);
-	void setDimension(width, height);
-	void setState(state);
-	void setOrientation(orientation);
-	void setController(controller);
+	void setWidth(int width);
+	void setHeight(int height);
 };
 
-#endif GATE_H
+#endif //GATE_H
