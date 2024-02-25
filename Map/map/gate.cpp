@@ -35,7 +35,7 @@ void Gate::Show()
 {
     if (state == gateState::Closed) {
         if (orientation == gateOrientation::Horizontal) {
-            cout << '-';
+            cout << '--';
         } else if (orientation == gateOrientation::Vertical) {
             cout << '|';
         }
