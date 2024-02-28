@@ -117,12 +117,12 @@ void Platform::CheckControllers()
 	{
 		if (_state == CLOSED)
 		{
-			if (_controllers[i]->GetState() == true)
+			if (_controllers[i]->GetState() == OPEN)
 				_moveMe = true;
 		}
 		if (_state == OPEN)
 		{
-			if (_controllers[i]->GetState() == false)
+			if (_controllers[i]->GetState() == CLOSED)
 			{
 				_moveMe = true;
 			}

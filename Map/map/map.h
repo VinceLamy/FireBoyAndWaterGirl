@@ -21,6 +21,7 @@ public:
 	const char* GetFilename;
 
 	void CheckPlatforms();
+	void CheckGateTest();
 
 	void SetGrid(vector<vector<Tile*>> g);
 	void MovePlatform(int x, int y);
@@ -30,7 +31,7 @@ public:
 	void AddExit(int x, int y);
 	void AddPool(int x, int y, Element e);
 	void AddWall(int x, int y);
-	void AddGate(int x, int y);
+	void AddGate(int x, int y, int size, Orientation o);
 	void AddLever(int x, int y);
 	void AddButton(int x, int y);
 	void AddPlatform(int x, int y, int xFinal, int yFinal, int size, Orientation o);
