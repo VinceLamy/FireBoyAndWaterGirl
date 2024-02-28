@@ -13,6 +13,16 @@ Exit::~Exit()
 {
 }
 
+void Exit::SetState(State s)
+{
+	_state = s;
+}
+
+State Exit::GetState()
+{
+	return _state;
+}
+
 void Exit::Show()
 {
 	cout << 'P';
