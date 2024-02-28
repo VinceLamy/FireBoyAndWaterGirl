@@ -1,4 +1,12 @@
-﻿  lever.cpp
-  main.cpp
-  Generating Code...
+﻿  platform.cpp
+  LINK : C:\Users\Félix-Antoine\Documents\GitHub\FireBoyAndWaterGirl\Map\map\x64\Debug\map.exe not found or not built by the last incremental link; performing full link
+wall.obj : warning LNK4205: '' is missing current debugging information for referencing module; linking object as if no debug info
+tile.obj : warning LNK4205: 'C:\Users\Félix-Antoine\Documents\GitHub\FireBoyAndWaterGirl\Map\map\x64\Debug\vc142.pdb' is missing current debugging information for referencing module; linking object as if no debug info
+pool.obj : warning LNK4205: 'C:\Users\Félix-Antoine\Documents\GitHub\FireBoyAndWaterGirl\Map\map\x64\Debug\vc142.pdb' is missing current debugging information for referencing module; linking object as if no debug info
+lever.obj : warning LNK4205: 'C:\Users\Félix-Antoine\Documents\GitHub\FireBoyAndWaterGirl\Map\map\x64\Debug\vc142.pdb' is missing current debugging information for referencing module; linking object as if no debug info
+gate.obj : warning LNK4205: 'C:\Users\Félix-Antoine\Documents\GitHub\FireBoyAndWaterGirl\Map\map\x64\Debug\vc142.pdb' is missing current debugging information for referencing module; linking object as if no debug info
+exit.obj : warning LNK4205: 'C:\Users\Félix-Antoine\Documents\GitHub\FireBoyAndWaterGirl\Map\map\x64\Debug\vc142.pdb' is missing current debugging information for referencing module; linking object as if no debug info
+controller.obj : warning LNK4205: 'C:\Users\Félix-Antoine\Documents\GitHub\FireBoyAndWaterGirl\Map\map\x64\Debug\vc142.pdb' is missing current debugging information for referencing module; linking object as if no debug info
+character.obj : warning LNK4205: 'C:\Users\Félix-Antoine\Documents\GitHub\FireBoyAndWaterGirl\Map\map\x64\Debug\vc142.pdb' is missing current debugging information for referencing module; linking object as if no debug info
+button.obj : warning LNK4205: 'C:\Users\Félix-Antoine\Documents\GitHub\FireBoyAndWaterGirl\Map\map\x64\Debug\vc142.pdb' is missing current debugging information for referencing module; linking object as if no debug info
   map.vcxproj -> C:\Users\Félix-Antoine\Documents\GitHub\FireBoyAndWaterGirl\Map\map\x64\Debug\map.exe
