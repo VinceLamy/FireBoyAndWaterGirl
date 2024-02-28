@@ -5,8 +5,8 @@
 
 struct Coordinate 
 {
-	int x;
-	int y;
+	float x;
+	float y;
 };
 
 class Tile 
@@ -19,8 +19,9 @@ public:
 	Coordinate GetPosition();
 	Type GetType();
 
-	void SetPosition(int x, int y);
+	void SetPosition(float x, float y);
 	void SetType(Type t);
+
 
 	virtual void Show();
 	void Clear();
@@ -28,6 +29,7 @@ public:
 private:
 	Coordinate _position;
 	Type _type;
+	Element _element;
 };
 
 #endif TILE_H
