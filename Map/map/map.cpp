@@ -18,12 +18,23 @@ using namespace std;
 
 Map::Map(const char* nomNiveau)
 {
+	if (!nomNiveau)
+	{
+		cout << "ERROR : Vous devez fournir un nom de fichier!\n";
+		return;
+	}
+
 	_fileName = nomNiveau;
 }
 
 Map::~Map()
 {
 	Clear();
+}
+
+vector<vector<Tile*>> Map::GetGrid()
+{
+	return _grid;
 }
 
 void Map::ReadMap()
@@ -263,9 +274,18 @@ void Map::AddTile(int x, int y)
 
 void Map::AddCharacter(int x, int y, Element e)
 {
-	Tile* nCaracter = new Character(x, y, e);
-	delete _grid[y][x];
-	_grid[y][x] = nCaracter;
+	if (e == FIRE)
+	{
+		_fireBoy = new Character(e, x, y, true);
+		delete _grid[y][x];
+		_grid[y][x] = _fireBoy;
+	}
+	else if (e == WATER)
+	{
+		_waterGirl = new Character(e, x, y, false);
+		delete _grid[y][x];
+		_grid[y][x] = _waterGirl;
+	}
 }
 
 void Map::AddExit(int x, int y)
@@ -277,9 +297,10 @@ void Map::AddExit(int x, int y)
 
 void Map::AddPool(int x, int y, Element e)
 {
-	Tile* nPool = new Pool(x, y, e);
+	_pool.push_back(new Pool(x, y, e));
 	delete _grid[y][x];
-	_grid[y][x] = nPool;
+	_grid[y][x] = _pool.back();
+
 }
 
 void Map::AddWall(int x, int y)
@@ -357,4 +378,37 @@ void Map::Clear()
 
 	_fileName = NULL;
 	_grid.clear();
+}
+
+Character* Map::GetActiveCharacter()
+{
+	if (_fireBoy->getState())
+		return _fireBoy;
+
+	return _waterGirl;
+}
+
+void Map::SwitchCharacter()
+{
+	if(_fireBoy->getState())
+	{
+		_fireBoy->Deactivate();
+		_waterGirl->Activate();
+	}
+	else
+	{
+		_fireBoy->Activate();
+		_waterGirl->Deactivate();
+	}
+}
+
+Pool* Map::GetPoolAt(int x, int y)
+{
+	Coordinate coord;
+	coord.x = x;
+	coord.y = y;
+
+	for (int i = 0; i < _pool.size(); i++)
+		if (_pool[i]->GetPosition().x == coord.x && _pool[i]->GetPosition().y == coord.y)
+			return _pool[i];
 }

@@ -1,24 +1,26 @@
 #ifndef MAP_H
 #define MAP_H
 
-#include <string>
 #include <vector>
+
+#include "character.h"
 #include "tile.h"
 #include "controller.h"
+#include "pool.h"
 
 using namespace std;
 
 class Map
 {
 public:
-	Map(const char* nomNiveau);
+	Map(const char* nomNiveau = NULL);
 	~Map();
 
 	void ReadMap();
 	void ShowMap();
 
-	vector<vector<Tile*>> GetGrid;
-	const char* GetFilename;
+	vector<vector<Tile*>> GetGrid();
+	//const char* GetFilename;
 
 	void CheckPlatforms();
 
@@ -37,10 +39,18 @@ public:
 
 	void Clear();
 
+	Character* GetActiveCharacter();
+	void SwitchCharacter();
+
+	Pool* GetPoolAt(int x, int y);
+
 private:
 	const char* _fileName;
 	vector<vector<Tile*>> _grid;
 	vector<Controller*> _lastControllers;
+	Character* _waterGirl;
+	Character* _fireBoy;
+	vector<Pool*> _pool;
 };
 
 #endif MAP_H
