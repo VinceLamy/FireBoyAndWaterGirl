@@ -68,7 +68,7 @@ void Gate::CloseGate(int x, int y)
 				_controllers[i]->SetState(CLOSED);
 
 				for (int y = 0; y < _slaveGates.size(); y++)
-					delete _slaveGates[y];
+					_slaveGates[y]->SetState(OPEN);
 			}
 		}
 	}
