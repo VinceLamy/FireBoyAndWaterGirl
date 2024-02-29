@@ -153,7 +153,7 @@ void Game::Play()
 		CheckExits();
 		system("CLS");
 		_map.ShowMap();
-		Sleep(125);
+		Sleep(50);
 	} while (!_gameOver && !_levelFinished);
 
 	system("CLS");
