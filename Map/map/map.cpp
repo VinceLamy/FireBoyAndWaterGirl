@@ -299,6 +299,8 @@ void Map::AddExit(int x, int y)
 	Tile* nExit = new Exit(x, y);
 	delete _grid[y][x];
 	_grid[y][x] = nExit;
+	Exit* exit = static_cast<Exit*>(nExit);
+	_exit.push_back(exit);
 }
 
 void Map::AddPool(int x, int y, Element e)
@@ -364,7 +366,9 @@ void Map::AddButton(int x, int y)
 	delete _grid[y][x];
 	_grid[y][x] = nButton;
 	Controller* platformButton = static_cast<Controller*>(nButton);
+	Button* thisButton = static_cast<Button*>(nButton);
 	_lastControllers.push_back(platformButton);
+	_button.push_back(thisButton);
 
 }
 
@@ -412,6 +416,21 @@ void Map::Clear()
 	_lastControllers.clear();
 }
 
+vector<Gate*> Map::GetGates()
+{
+	return _gate;
+}
+
+vector<Button*> Map::GetButton()
+{
+	return _button;
+}
+
+vector<Exit*> Map::GetExit()
+{
+	return _exit;
+}
+
 Character* Map::GetActiveCharacter()
 {
 	if (_fireBoy->getState())
@@ -443,22 +462,4 @@ Pool* Map::GetPoolAt(int x, int y)
 	for (int i = 0; i < _pool.size(); i++)
 		if (_pool[i]->GetPosition().x == coord.x && _pool[i]->GetPosition().y == coord.y)
 			return _pool[i];
-}
-
-void Map::OpenGateAt(int x, int y)
-{
-	for (int i = 0; i < _gate.capacity(); i++)
-	{
-		_gate[i]->OpenGate(x, y);
-		_grid[y][x] = new Tile(x, y);
-	}
-}
-
-void Map::CloseGateAt(int x, int y)
-{
-	for (int i = 0; i < _gate.capacity(); i++)
-	{
-		_gate[i]->CloseGate(x, y);
-		_grid[y][x] = new Tile(x, y);
-	}
 }

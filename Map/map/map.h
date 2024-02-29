@@ -8,6 +8,7 @@
 #include "controller.h"
 #include "gate.h"
 #include "pool.h"
+#include "exit.h"
 
 using namespace std;
 
@@ -40,21 +41,25 @@ public:
 
 	void Clear();
 
+	vector<Gate*> GetGates();
+	vector<Button*> GetButton();
+	vector<Exit*> GetExit();
 	Character* GetActiveCharacter();
 	void SwitchCharacter();
 
 	Pool* GetPoolAt(int x, int y);
-	void OpenGateAt(int x, int y);
-	void CloseGateAt(int x, int y);
+	
 
 private:
 	const char* _fileName;
 	vector<vector<Tile*>> _grid;
 	vector<Controller*> _lastControllers;
+	vector<Button*> _button;
 	Character* _waterGirl;
 	Character* _fireBoy;
 	vector<Pool*> _pool;
 	vector<Gate*> _gate;
+	vector<Exit*> _exit;
 };
 
 #endif MAP_H
