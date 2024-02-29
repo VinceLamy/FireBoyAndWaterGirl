@@ -49,9 +49,13 @@ int main()
 
 
     int etat_joueur = 0;
+    
+    int compteur_depart = 10;
+    int dt = 0;
+
     std::string msg;
     json rcv_msg, send_msg;
-    
+    int start_cnt = 0;
     while (true)
     {
         rcv_msg.clear();
@@ -65,7 +69,8 @@ int main()
         {
             msg.erase(std::remove(msg.begin(), msg.end(), '\n'), msg.end());
             // std::cout << msg.size() << std::endl;
-            if (msg.size() > 108 && msg.size() < 113)
+            // std::cout << msg << std::endl;
+            if (msg.size() > 123 && msg.size() < 131)
             {
                 rcv_msg = json::parse(msg);
                 std::cout << rcv_msg << std::endl;
@@ -86,14 +91,35 @@ int main()
             }
         }
         
+        int deltaT = 0;
 
-        send_msg["seg1"] = 4;
-        send_msg["seg2"] = 8;
+        if (start_cnt > 2)
+            deltaT = rcv_msg["dt"].template get<int>();
+        else
+        {
+            deltaT = 50;
+        }
+
+        dt += deltaT;
+
+        if (dt >= 1000)
+        {
+            --compteur_depart;
+            dt = 0;
+        }
+            
+
+        if (compteur_depart <= 0)
+            compteur_depart = 10;
+
+        // std::cout << compteur_depart << std::endl;
+
+        send_msg["seg"] = deltaT;
         send_msg["lcd"] = "Hi!";
 
         SendToSerial(arduino, send_msg);
-
-        Sleep(15);
+        ++start_cnt;
+        Sleep(50);
     }
 
     arduino->closeSerial();
