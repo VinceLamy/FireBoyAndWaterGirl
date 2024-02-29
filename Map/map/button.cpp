@@ -7,6 +7,7 @@ Button::Button(int x, int y)
 {
 	SetPosition(x, y);
 	SetType(BUTTON);
+	//SetState(OPEN); //Pour CheckGateTest
 }
 
 Button::Button()

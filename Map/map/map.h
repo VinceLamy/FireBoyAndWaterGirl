@@ -6,6 +6,7 @@
 #include "character.h"
 #include "tile.h"
 #include "controller.h"
+#include "gate.h"
 #include "pool.h"
 
 using namespace std;
@@ -32,7 +33,7 @@ public:
 	void AddExit(int x, int y);
 	void AddPool(int x, int y, Element e);
 	void AddWall(int x, int y);
-	void AddGate(int x, int y);
+	void AddGate(int x, int y, int size, Orientation o);
 	void AddLever(int x, int y);
 	void AddButton(int x, int y);
 	void AddPlatform(int x, int y, int xFinal, int yFinal, int size, Orientation o);
@@ -43,6 +44,8 @@ public:
 	void SwitchCharacter();
 
 	Pool* GetPoolAt(int x, int y);
+	void OpenGateAt(int x, int y);
+	void CloseGateAt(int x, int y);
 
 private:
 	const char* _fileName;
@@ -51,6 +54,7 @@ private:
 	Character* _waterGirl;
 	Character* _fireBoy;
 	vector<Pool*> _pool;
+	vector<Gate*> _gate;
 };
 
 #endif MAP_H

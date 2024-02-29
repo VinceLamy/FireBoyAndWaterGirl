@@ -50,7 +50,7 @@ void Map::ReadMap()
 		int y = stoi(ligne);
 		_grid.resize(y, vector<Tile*>(x));
 
-		//Remplie la map de Tile
+		//Remplit la map de Tile
 		for (int a = 0; a < _grid.size(); a++)
 		{
 			for (int b = 0; b < _grid[a].size(); b++)
@@ -120,18 +120,6 @@ void Map::ReadMap()
 				AddExit(stoi(v[1]), stoi(v[2]));
 				break;
 			case '|':
-				for (int i = stoi(v[2]); i <= stoi(v[3]); i++)
-				{
-					AddGate(stoi(v[1]), i);
-				}
-				break;
-			case 'B':
-				AddButton(stoi(v[1]), stoi(v[2]));
-				break;
-			case 'L':
-				AddLever(stoi(v[1]), stoi(v[2]));
-				break;
-			case '%':
 				Orientation o;
 				if (ligne.c_str()[2] == 'H')
 				{
@@ -141,7 +129,25 @@ void Map::ReadMap()
 				{
 					o = VERTICAL;
 				}
-				AddPlatform(stoi(v[2]), stoi(v[3]), stoi(v[4]), stoi(v[5]), stoi(v[6]), o);
+				AddGate(stoi(v[2]), stoi(v[3]), stoi(v[4]), o);
+				break;
+			case 'B':
+				AddButton(stoi(v[1]), stoi(v[2]));
+				break;
+			case 'L':
+				AddLever(stoi(v[1]), stoi(v[2]));
+				break;
+			case '%':
+				Orientation o2;
+				if (ligne.c_str()[2] == 'H')
+				{
+					o2 = HORIZONTAL;
+				}
+				else if (ligne.c_str()[2] == 'V')
+				{
+					o2 = VERTICAL;
+				}
+				AddPlatform(stoi(v[2]), stoi(v[3]), stoi(v[4]), stoi(v[5]), stoi(v[6]), o2);
 				break;
 			}
 		}
@@ -310,11 +316,37 @@ void Map::AddWall(int x, int y)
 	_grid[y][x] = nWall;
 }
 
-void Map::AddGate(int x, int y)
+void Map::AddGate(int x, int y, int size, Orientation o)
 {
-	Tile* nGate = new Gate(x, y);
+	Tile* nSlaveGate;
+	vector<Gate*> slaveGateVector;
+	Gate* nSlaveGate2;
+	if (o == HORIZONTAL)
+	{
+		for (int i = 1; i < size; i++)
+		{
+			nSlaveGate = new Gate(x + i, y);
+			nSlaveGate2 = static_cast<Gate*>(nSlaveGate);
+			delete _grid[y][x + i];
+			_grid[y][x + i] = nSlaveGate;
+			slaveGateVector.push_back(nSlaveGate2);
+		}
+	}
+	else if (o == VERTICAL)
+	{
+		for (int i = 1; i < size; i++)
+		{
+			nSlaveGate = new Gate(x, y - i);
+			nSlaveGate2 = static_cast<Gate*>(nSlaveGate);
+			delete _grid[y - i][x];
+			_grid[y - i][x] = nSlaveGate;
+			slaveGateVector.push_back(nSlaveGate2);
+		}
+	}
+	_gate.push_back(new Gate(x, y, size, o, slaveGateVector, _lastControllers));
 	delete _grid[y][x];
-	_grid[y][x] = nGate;
+	_grid[y][x] = _gate.back();
+	_lastControllers.clear();
 }
 
 void Map::AddLever(int x, int y)
@@ -338,7 +370,7 @@ void Map::AddButton(int x, int y)
 
 void Map::AddPlatform(int x, int y, int xFinal, int yFinal, int size, Orientation o)
 {
-	Tile* nSlavePlatform = new Platform(x, y);
+	Tile* nSlavePlatform;
 	vector<Tile*> slavePlatformVector;
 	if (o == HORIZONTAL)
 	{
@@ -375,9 +407,9 @@ void Map::Clear()
 			delete _grid[a][b];
 		}
 	}
-
 	_fileName = NULL;
 	_grid.clear();
+	_lastControllers.clear();
 }
 
 Character* Map::GetActiveCharacter()
@@ -411,4 +443,22 @@ Pool* Map::GetPoolAt(int x, int y)
 	for (int i = 0; i < _pool.size(); i++)
 		if (_pool[i]->GetPosition().x == coord.x && _pool[i]->GetPosition().y == coord.y)
 			return _pool[i];
+}
+
+void Map::OpenGateAt(int x, int y)
+{
+	for (int i = 0; i < _gate.capacity(); i++)
+	{
+		_gate[i]->OpenGate(x, y);
+		_grid[y][x] = new Tile(x, y);
+	}
+}
+
+void Map::CloseGateAt(int x, int y)
+{
+	for (int i = 0; i < _gate.capacity(); i++)
+	{
+		_gate[i]->CloseGate(x, y);
+		_grid[y][x] = new Tile(x, y);
+	}
 }
