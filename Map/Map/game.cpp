@@ -54,7 +54,7 @@ void Game::GetInput()
 	}
 	if (GetKeyState('A') & 0x8000)
 	{
-		if (grid[ActivePlayerPos.y][ActivePlayerPos.x - 1]->GetType() == WALL)
+		if (grid[ActivePlayerPos.y][ActivePlayerPos.x - 1]->GetType() == WALL || grid[ActivePlayerPos.y][ActivePlayerPos.x - 1]->GetType() == GATE)
 			return;
 
 		if (grid[ActivePlayerPos.y + 1][ActivePlayerPos.x - 1]->GetType() == POOL)
@@ -76,7 +76,7 @@ void Game::GetInput()
 	}
 	if (GetKeyState('D') & 0x8000)
 	{
-		if (grid[ActivePlayerPos.y][ActivePlayerPos.x + 1]->GetType() == WALL)
+		if (grid[ActivePlayerPos.y][ActivePlayerPos.x + 1]->GetType() == WALL || grid[ActivePlayerPos.y][ActivePlayerPos.x + 1]->GetType() == GATE)
 			return;
 
 		if (grid[ActivePlayerPos.y + 1][ActivePlayerPos.x + 1]->GetType() == POOL)
@@ -167,5 +167,11 @@ void Game::CheckPosition()
 
 void Game::Interact()
 {
-	
+	vector<vector<Tile*>> grid = _map.GetGrid();
+	Coordinate ActivePlayerPos = _map.GetActiveCharacter()->GetPosition();
+
+	if(grid[ActivePlayerPos.y + 1][ActivePlayerPos.x]->GetType() == BUTTON)
+	{
+		
+	}
 }

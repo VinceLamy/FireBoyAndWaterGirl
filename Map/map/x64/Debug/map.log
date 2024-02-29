@@ -13,6 +13,8 @@ C:\Users\Vince\OneDrive\Documents\GitHub\FireBoyAndWaterGirl\Map\Map\game.cpp(50
 C:\Users\Vince\OneDrive\Documents\GitHub\FireBoyAndWaterGirl\Map\Map\game.cpp(50,97): warning C4244: 'argument' : conversion de 'float' en 'const unsigned __int64', perte possible de données
 C:\Users\Vince\OneDrive\Documents\GitHub\FireBoyAndWaterGirl\Map\Map\game.cpp(57,27): warning C4244: 'argument' : conversion de 'float' en 'const unsigned __int64', perte possible de données
 C:\Users\Vince\OneDrive\Documents\GitHub\FireBoyAndWaterGirl\Map\Map\game.cpp(57,49): warning C4244: 'argument' : conversion de 'float' en 'const unsigned __int64', perte possible de données
+C:\Users\Vince\OneDrive\Documents\GitHub\FireBoyAndWaterGirl\Map\Map\game.cpp(57,96): warning C4244: 'argument' : conversion de 'float' en 'const unsigned __int64', perte possible de données
+C:\Users\Vince\OneDrive\Documents\GitHub\FireBoyAndWaterGirl\Map\Map\game.cpp(57,118): warning C4244: 'argument' : conversion de 'float' en 'const unsigned __int64', perte possible de données
 C:\Users\Vince\OneDrive\Documents\GitHub\FireBoyAndWaterGirl\Map\Map\game.cpp(60,30): warning C4244: 'argument' : conversion de 'float' en 'const unsigned __int64', perte possible de données
 C:\Users\Vince\OneDrive\Documents\GitHub\FireBoyAndWaterGirl\Map\Map\game.cpp(60,53): warning C4244: 'argument' : conversion de 'float' en 'const unsigned __int64', perte possible de données
 C:\Users\Vince\OneDrive\Documents\GitHub\FireBoyAndWaterGirl\Map\Map\game.cpp(62,73): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
@@ -27,6 +29,8 @@ C:\Users\Vince\OneDrive\Documents\GitHub\FireBoyAndWaterGirl\Map\Map\game.cpp(74
 C:\Users\Vince\OneDrive\Documents\GitHub\FireBoyAndWaterGirl\Map\Map\game.cpp(74,96): warning C4244: 'argument' : conversion de 'float' en 'const unsigned __int64', perte possible de données
 C:\Users\Vince\OneDrive\Documents\GitHub\FireBoyAndWaterGirl\Map\Map\game.cpp(79,27): warning C4244: 'argument' : conversion de 'float' en 'const unsigned __int64', perte possible de données
 C:\Users\Vince\OneDrive\Documents\GitHub\FireBoyAndWaterGirl\Map\Map\game.cpp(79,49): warning C4244: 'argument' : conversion de 'float' en 'const unsigned __int64', perte possible de données
+C:\Users\Vince\OneDrive\Documents\GitHub\FireBoyAndWaterGirl\Map\Map\game.cpp(79,96): warning C4244: 'argument' : conversion de 'float' en 'const unsigned __int64', perte possible de données
+C:\Users\Vince\OneDrive\Documents\GitHub\FireBoyAndWaterGirl\Map\Map\game.cpp(79,118): warning C4244: 'argument' : conversion de 'float' en 'const unsigned __int64', perte possible de données
 C:\Users\Vince\OneDrive\Documents\GitHub\FireBoyAndWaterGirl\Map\Map\game.cpp(82,30): warning C4244: 'argument' : conversion de 'float' en 'const unsigned __int64', perte possible de données
 C:\Users\Vince\OneDrive\Documents\GitHub\FireBoyAndWaterGirl\Map\Map\game.cpp(82,53): warning C4244: 'argument' : conversion de 'float' en 'const unsigned __int64', perte possible de données
 C:\Users\Vince\OneDrive\Documents\GitHub\FireBoyAndWaterGirl\Map\Map\game.cpp(84,73): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
@@ -51,6 +55,4 @@ C:\Users\Vince\OneDrive\Documents\GitHub\FireBoyAndWaterGirl\Map\Map\game.cpp(15
 C:\Users\Vince\OneDrive\Documents\GitHub\FireBoyAndWaterGirl\Map\Map\game.cpp(156,52): warning C4244: 'argument' : conversion de 'float' en 'const unsigned __int64', perte possible de données
 C:\Users\Vince\OneDrive\Documents\GitHub\FireBoyAndWaterGirl\Map\Map\game.cpp(156,77): warning C4244: 'argument' : conversion de 'float' en 'const unsigned __int64', perte possible de données
 C:\Users\Vince\OneDrive\Documents\GitHub\FireBoyAndWaterGirl\Map\Map\game.cpp(156,96): warning C4244: 'argument' : conversion de 'float' en 'const unsigned __int64', perte possible de données
-  main.cpp
-  Génération de code en cours...
   map.vcxproj -> C:\Users\Vince\OneDrive\Documents\GitHub\FireBoyAndWaterGirl\Map\Map\x64\Debug\map.exe
