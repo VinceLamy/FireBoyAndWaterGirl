@@ -114,7 +114,7 @@ int main()
 
         // std::cout << compteur_depart << std::endl;
 
-        send_msg["seg"] = deltaT;
+        send_msg["seg"] = compteur_depart;
         send_msg["lcd"] = "Hi!";
 
         SendToSerial(arduino, send_msg);
