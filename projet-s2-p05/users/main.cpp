@@ -11,6 +11,8 @@ SerialPort* arduino;
 #define BAUD 256000
 #define MSG_MAX_SIZE 512
 
+#define VALEUR_TIMER 99
+
 bool SendToSerial(SerialPort *arduino, json j_msg){
     // Return 0 if error
     std::string msg = j_msg.dump();
@@ -50,7 +52,7 @@ int main()
 
     int etat_joueur = 0;
     
-    int compteur_depart = 10;
+    int compteur_depart = VALEUR_TIMER;
     int dt = 0;
 
     std::string msg;
@@ -110,7 +112,7 @@ int main()
             
 
         if (compteur_depart <= 0)
-            compteur_depart = 10;
+            compteur_depart = VALEUR_TIMER;
 
         // std::cout << compteur_depart << std::endl;
 

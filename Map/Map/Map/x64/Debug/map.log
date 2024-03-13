@@ -6,11 +6,12 @@
   lever.cpp
   main.cpp
   map.cpp
-  platform.cpp
 C:\Users\Alex\Documents\PlatformIO\Projects\FireBoyAndWaterGirl\Map\Map\map.cpp(67,8): warning C4101: 'lastPlatformY': unreferenced local variable
 C:\Users\Alex\Documents\PlatformIO\Projects\FireBoyAndWaterGirl\Map\Map\map.cpp(66,8): warning C4101: 'lastPlatformX': unreferenced local variable
+  platform.cpp
   pool.cpp
   tile.cpp
   wall.cpp
   Generating Code...
+  LINK : C:\Users\Alex\Documents\PlatformIO\Projects\FireBoyAndWaterGirl\Map\Map\x64\Debug\map.exe not found or not built by the last incremental link; performing full link
   map.vcxproj -> C:\Users\Alex\Documents\PlatformIO\Projects\FireBoyAndWaterGirl\Map\Map\x64\Debug\map.exe
