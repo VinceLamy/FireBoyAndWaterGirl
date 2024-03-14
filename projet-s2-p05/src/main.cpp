@@ -22,7 +22,7 @@
 
 // #define debug_led_pin 45
 
-// LiquidCrystal lcd(29, 28, 17, 16, 15, 14);
+LiquidCrystal lcd(2,3,4,5,8,9);
 
 typedef struct
 {
@@ -35,6 +35,7 @@ typedef struct
 
 	uint8_t buttons;
 	uint32_t dt;
+	uint32_t random;
 } sensor_data_t;
 
 typedef struct
@@ -50,6 +51,9 @@ display_data_t display_data;
 
 uint64_t time = 0;
 uint64_t prevTime;
+
+char prevMsg[lcd_char_buffer_size];
+char msg[lcd_char_buffer_size];
 
 void SendUpdate(sensor_data_t* data)
 {
@@ -67,6 +71,7 @@ void SendUpdate(sensor_data_t* data)
 	doc["joystick"]["x"] = String(data->joyX);
 	doc["joystick"]["y"] = String(data->joyY);
 	doc["dt"] = data->dt;
+	doc["random"] = data->random;
 
 	serializeJson(doc, Serial);
 	doc.shrinkToFit();
@@ -113,10 +118,7 @@ void setup()
 
 	DDRC = 0b11111111;
 
-	// lcd.begin(16, 2);
-	// lcd.print("Hello, World!");
-
-	// pinMode(debug_led_pin, OUTPUT);
+	lcd.begin(16, 2);
 
 	sensor_data.accelX = 0;
 	sensor_data.accelY = 0;
@@ -133,6 +135,7 @@ void setup()
 
 void loop() 
 {
+	strncpy(prevMsg, msg, lcd_char_buffer_size);
 	prevTime = time;
 	time = millis();
 
@@ -158,9 +161,19 @@ void loop()
 
 	sensor_data.dt = time - prevTime;
 
+	sensor_data.random = time % 10000;
+
 	SendUpdate(&sensor_data);
 	delay(5);
 	ReadUpdate(&display_data);
+
+	sprintf(msg, "%s %d", display_data.lcd_data, display_data.seg);
+
+	if (strcmp(msg, prevMsg) != 0)
+	{
+		lcd.clear();
+		lcd.write(msg);
+	}
 
 	digitalWrite(pin_fire_led, (display_data.playerChoice & 1) >> 0);
 	digitalWrite(pin_water_led, (display_data.playerChoice & 2) >> 1);
@@ -172,6 +185,6 @@ void loop()
 	int unit = display_data.seg % 10;
 
 	PORTC = (decimal << 4 | unit);
-	
+
 	delay(15);
 }

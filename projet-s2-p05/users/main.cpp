@@ -69,11 +69,12 @@ int main()
 
         if (msg.size() > 0)
         {
-            msg.erase(std::remove(msg.begin(), msg.end(), '\n'), msg.end());
+            // msg.erase(std::remove(msg.begin(), msg.end(), '\n'), msg.end());
             // std::cout << msg.size() << std::endl;
             // std::cout << msg << std::endl;
-            if (msg.size() > 123 && msg.size() < 131)
+            if (msg.size() > 135 && msg.size() < 143 && start_cnt > 2)
             {
+                
                 rcv_msg = json::parse(msg);
                 std::cout << rcv_msg << std::endl;
             }
@@ -117,7 +118,7 @@ int main()
         // std::cout << compteur_depart << std::endl;
 
         send_msg["seg"] = compteur_depart;
-        send_msg["lcd"] = "Hi!";
+        send_msg["lcd"] = "Salut!";
 
         SendToSerial(arduino, send_msg);
         ++start_cnt;
