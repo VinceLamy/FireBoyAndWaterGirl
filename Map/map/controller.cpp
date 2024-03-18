@@ -2,25 +2,18 @@
 
 Controller::Controller()
 {
-	_state = false;
 }
 
 Controller::~Controller()
 {
 }
 
-
-
-void Controller::ChangeState()
+void Controller::SetState(State s)
 {
-	if (_state == true)
-		_state = false;
-
-	else
-		_state = true;
+	_state = s;
 }
 
-bool Controller::GetState()
+State Controller::GetState()
 {
 	return _state;
 }

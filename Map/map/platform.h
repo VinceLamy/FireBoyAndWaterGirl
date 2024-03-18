@@ -18,6 +18,7 @@ public:
 	~Platform();
 
 	int GetSize();
+	bool GetMoveMe();
 	Coordinate GetFinal();
 	Coordinate GetInitial();
 	State GetState();
@@ -26,13 +27,16 @@ public:
 	vector<Tile*> GetSlaves();
 
 	void MovePlatform();
+	void CheckControllers();
 
 	void SetState(State s);
+	void SetMoveMe(bool b);
 
 	void Show();
 	void Clear();
 
 private:
+	bool _moveMe = false;
 	int _size;
 	Coordinate _initial;
 	Coordinate _final;

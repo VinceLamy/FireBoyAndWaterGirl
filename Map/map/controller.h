@@ -9,13 +9,13 @@ public:
 	Controller();
 	~Controller();
 
-	void ChangeState();
-	bool GetState();
+	void SetState(State s);
+	State GetState();
 
 	virtual void Show() = 0;
 
 private:
-	bool _state = false;
+	State _state = CLOSED;
 	// Sprite
 	// Color
 };

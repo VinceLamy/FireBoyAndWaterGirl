@@ -29,7 +29,8 @@ Type Tile::GetType()
 	return _type;
 }
 
-void Tile::SetPosition(int x, int y)
+
+void Tile::SetPosition(float x, float y)
 {
 	_position.x = x;
 	_position.y = y;
