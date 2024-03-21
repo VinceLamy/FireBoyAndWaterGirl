@@ -35,30 +35,34 @@ void Game::GetInput()
 	data.moveRight = false;
 	data.moveLeft = false;
 
-	bool parse_status = comm->GetInputData();
+	parse_status = comm->GetInputData();
 
-	if (!parse_status)
-		return;
+	if (parse_status)
+	{
 
-	//std::cout << "jump" << std::endl;
-	data.jump = comm->rcv_msg["boutons"]["3"] == 1;
-	data.interact = comm->rcv_msg["boutons"]["2"] == 1;
-	data.switchChars = comm->rcv_msg["boutons"]["1"] == 1;
+		//std::cout << "jump" << std::endl;
+		data.jump = comm->rcv_msg["boutons"]["3"] == 1;
+		data.interact = comm->rcv_msg["boutons"]["2"] == 1;
+		data.switchChars = comm->rcv_msg["boutons"]["1"] == 1;
 
-	size_t len;
-	data.moveRight = std::stof(std::string(comm->rcv_msg["joystick"]["x"])) < -0.5;
-	data.moveLeft = std::stof(std::string(comm->rcv_msg["joystick"]["x"])) > 0.5;
+		size_t len;
+		data.moveRight = std::stof(std::string(comm->rcv_msg["joystick"]["x"])) < -0.5;
+		data.moveLeft = std::stof(std::string(comm->rcv_msg["joystick"]["x"])) > 0.5;
+	}
+}
 
+void Game::SendResponse()
+{
 	if (comm->rcv_msg["boutons"]["1"] == 1)
 	{
 		if (etat_joueur == 0)
 		{
-			comm->send_msg["joueur"] = 1;
+			comm->send_msg["joueur"] = 2;
 			etat_joueur = 1;
 		}
 		else if (etat_joueur == 1)
 		{
-			comm->send_msg["joueur"] = 2;
+			comm->send_msg["joueur"] = 1;
 			etat_joueur = 0;
 		}
 	}
@@ -86,9 +90,13 @@ void Game::GetInput()
 
 
 	comm->send_msg["seg"] = compteur_depart;
+
 	comm->send_msg["lcd"] = "Salut!";
 
-	//comm->SendToPort(comm->send_msg);
+	Sleep(10);
+
+	comm->SendToPort(comm->send_msg);
+
 }
 
 
@@ -108,7 +116,7 @@ void Game::MovePlayers()
 		}
 	}
 
-	if(data.jump)
+	if (data.jump)
 	{
 		if (_isJumping == false)
 		{
@@ -220,6 +228,7 @@ void Game::Play()
 		CheckButtons();
 		CheckGates();
 		CheckExits();
+		SendResponse();
 		system("CLS");
 		_map.ShowMap();
 		Sleep(50);
@@ -273,7 +282,6 @@ void Game::CheckGates()
 		_map.GetGates()[i]->CheckControllers();
 	}
 }
-
 void Game::CheckButtons()
 {
 	vector<vector<Tile*>> grid = _map.GetGrid();
@@ -292,7 +300,6 @@ void Game::CheckButtons()
 		}
 	}
 }
-
 void Game::CheckExits()
 {
 	vector<vector<Tile*>> grid = _map.GetGrid();
@@ -324,8 +331,6 @@ void Game::CheckExits()
 		}
 	}
 }
-
-
 void Game::Interact()
 {
 	vector<vector<Tile*>> grid = _map.GetGrid();

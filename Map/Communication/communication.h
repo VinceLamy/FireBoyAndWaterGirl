@@ -28,10 +28,10 @@ typedef struct
 #include "json.hpp"
 #include "serial/SerialPort.hpp"
 
-#define BAUD 128000
+#define BAUD 256000
 #define MSG_MAX_SIZE 143
 
-#define VALEUR_TIMER 99
+#define VALEUR_TIMER 60
 
 using json = nlohmann::json;
 

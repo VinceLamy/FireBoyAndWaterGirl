@@ -50,9 +50,20 @@ bool Communication::GetInputData()
         msg.erase(std::remove(msg.begin(), msg.end(), '\n'), msg.end());
         //std::cout << msg.size() << std::endl;
         std::cout << msg << std::endl;
+
         if (msg.size() > 135 && msg.size() < 143 && start_cnt > 2)
         {
-            rcv_msg = json::parse(msg);
+            try
+            {
+                rcv_msg = json::parse(msg);
+                //std::cout << rcv_msg << std::endl;
+            }
+            catch (const std::exception& e)
+            {
+                send_msg["lcd"] = e.what();
+                return false;
+            }
+            
             //std::cout << rcv_msg << std::endl;
             return true;
         }

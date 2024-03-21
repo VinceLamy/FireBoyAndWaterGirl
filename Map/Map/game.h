@@ -25,7 +25,7 @@ class Game
 	input_data data;
 
 	int etat_joueur = 0;
-
+	bool parse_status = false;
 	int compteur_depart = VALEUR_TIMER;
 	int dt = 0;
 
@@ -44,6 +44,7 @@ public:
 	void CheckButtons();
 	void CheckExits();
 	void Interact();
+	void SendResponse();
 
 	void Play();
 

@@ -2,7 +2,7 @@
 #include <ArduinoJson.h>
 #include <LiquidCrystal.h>
 
-#define BAUD 128000
+#define BAUD 256000
 
 #define pin_joystick_x A0
 #define pin_joystick_y A1
@@ -55,6 +55,7 @@ uint64_t prevTime;
 char prevMsg[lcd_char_buffer_size];
 char msg[lcd_char_buffer_size];
 
+
 void SendUpdate(sensor_data_t* data)
 {
 	JsonDocument doc;
@@ -75,14 +76,15 @@ void SendUpdate(sensor_data_t* data)
 
 	serializeJson(doc, Serial);
 	doc.shrinkToFit();
-	Serial.println();
+	if (Serial.availableForWrite() > 0)
+		Serial.println();
 }
 
 void ReadUpdate(display_data_t* data)
 {
 
 	JsonDocument doc;
-	
+	// lcd.write(Serial.available());
 	DeserializationError err = deserializeJson(doc, Serial);
 	
 	if (err)
@@ -95,11 +97,12 @@ void ReadUpdate(display_data_t* data)
 	data->playerChoice = doc["joueur"];
 	data->seg = doc["seg"];
 	strncpy(data->lcd_data, doc["lcd"], lcd_char_buffer_size);
+	
 }
 
 void setup() 
 {
-  	Serial.begin(BAUD);
+  	// Serial.begin(BAUD);
 
 	pinMode(pin_joystick_x, INPUT);
 	pinMode(pin_joystick_y, INPUT);
@@ -164,18 +167,21 @@ void loop()
 
 	sensor_data.random = time % 10000;
 
+	Serial.begin(BAUD);
 	SendUpdate(&sensor_data);
-	delay(10);
-	//ReadUpdate(&display_data);
-
-	// strncpy(display_data.lcd_data, "Hello, World!", lcd_char_buffer_size);
-	// display_data.seg = 32;
+	delay(80);
+	ReadUpdate(&display_data);
+	Serial.end();
+	
 	sprintf(msg, "%s %d", display_data.lcd_data, display_data.seg);
+
+	//strncpy(display_data.lcd_data, "Hello, World!", lcd_char_buffer_size);
+	// display_data.seg = 32;
 
 	if (strcmp(msg, prevMsg) != 0)
 	{
 		lcd.clear();
-		lcd.write(msg);
+		lcd.print(msg);
 	}
 
 	digitalWrite(pin_fire_led, (display_data.playerChoice & 1) >> 0);
@@ -186,8 +192,8 @@ void loop()
 		decimal = 0;
 
 	int unit = display_data.seg % 10;
-
+ 
 	PORTC = (decimal << 4 | unit);
 
-	delay(120);
+	delay(10);
 }
